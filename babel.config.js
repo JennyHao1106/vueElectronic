@@ -9,6 +9,7 @@ module.exports = {
         libraryName: 'element-ui',
         styleLibraryName: 'theme-chalk'
       }
+<<<<<<< HEAD
     ],
     [
       'component',
@@ -16,6 +17,8 @@ module.exports = {
         libraryName: 'element-ui',
         styleLibraryName: 'theme-chalk'
       }
+=======
+>>>>>>> login
     ]
   ]
 }

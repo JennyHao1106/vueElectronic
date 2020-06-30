@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <img src="./assets/logo.png">
     <div>
       <p>
@@ -24,6 +25,16 @@ export default {
 }
 </script>
 
+=======
+    <router-view></router-view>
+  </div>
+</template>
+<script>
+export default {
+  name: 'app'
+}
+</script>
+>>>>>>> login
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
