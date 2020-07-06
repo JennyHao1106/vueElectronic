@@ -31,7 +31,6 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
 export default {
   data() {
     return {
@@ -62,7 +61,8 @@ export default {
             this.$message.error("登录失败");
           } else {
             this.$message.success("登录成功");
-            sessionStorage.setItem("TOKEN", res.token);
+            console.log(res)
+            window.sessionStorage.setItem("TOKEN", res.data.token);
             this.$router.push("/home");
           }
         } else {

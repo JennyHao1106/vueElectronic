@@ -24,3 +24,6 @@
 ## 2020.06.24
 1.vue引入外部的样式图标库：
 	在main.js中import对应的css文件，class中使用即可 
+
+## 2020.07.03
+1.sessionStorage存储均为String 如果要存储数组需要先使用JSON.stringify 转换，再用JSON.parse解析回数组
