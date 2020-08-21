@@ -13,6 +13,8 @@
 	git checkout -b （login）--分支名称
 	（2）查看分支
 	git branch
+<<<<<<< HEAD
+=======
 
 4.vue相关
 	vue -h 可以查看vue相关的帮助信息，就是可以看到vue可以使用那些命令
@@ -24,6 +26,10 @@
 ## 2020.06.24
 1.vue引入外部的样式图标库：
 	在main.js中import对应的css文件，class中使用即可 
+<<<<<<< HEAD
 
 ## 2020.07.03
 1.sessionStorage存储均为String 如果要存储数组需要先使用JSON.stringify 转换，再用JSON.parse解析回数组
+=======
+>>>>>>> login
+>>>>>>> 20a0fc2da21f02c39b2b2db6bcede1d1d9e5d4b3
