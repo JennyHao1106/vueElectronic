@@ -13,8 +13,6 @@
 	git checkout -b （login）--分支名称
 	（2）查看分支
 	git branch
-<<<<<<< HEAD
-=======
 
 4.vue相关
 	vue -h 可以查看vue相关的帮助信息，就是可以看到vue可以使用那些命令
@@ -27,9 +25,22 @@
 1.vue引入外部的样式图标库：
 	在main.js中import对应的css文件，class中使用即可 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## 2020.07.03
 1.sessionStorage存储均为String 如果要存储数组需要先使用JSON.stringify 转换，再用JSON.parse解析回数组
-=======
->>>>>>> login
->>>>>>> 20a0fc2da21f02c39b2b2db6bcede1d1d9e5d4b3
+
+
+## 2020.07.03
+1.sessionStorage存储均为String 如果要存储数组需要先使用JSON.stringify 转换，再用JSON.parse解析回数组
+4.vue相关
+	vue -h 可以查看vue相关的帮助信息，就是可以看到vue可以使用那些命令
+
+5.div块居中的方式
+	（1）居中块的父组件设置为flex 设置两个属性justify-content: center;  align-items: center;
+	（2）居中块设置position：absolute;left、top设置为50%；再设置transform：translate(-50%，-50%) --将元素沿着x轴和y轴同时移动自身宽高的50%
+
+## 2020.06.24
+1.vue引入外部的样式图标库：
+	在main.js中import对应的css文件，class中使用即可 
+

@@ -1,5 +1,4 @@
 import Vue from 'vue'
-
 import {
     Button,
     Form,
@@ -49,5 +48,4 @@ Vue.use(Pagination)
 Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.prototype.$notify = Notification;
-
 
