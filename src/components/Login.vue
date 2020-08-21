@@ -54,18 +54,18 @@ export default {
       this.$refs.loginFormRef.resetFields();
     },
     submit() {
-      this.$refs.loginFormRef.validate(async valid => {
+      this.$refs.loginFormRef.validate(valid => {
         if (valid) {
-          const { data: res } = await this.$http.post("login", this.loginForm);
-          if (res.meta.status !== 200) {
-            this.$message.error("登录失败");
-          } else {
-            this.$message.success("登录成功");
-            console.log(res)
-            window.sessionStorage.setItem("TOKEN", res.data.token);
-            this.$router.push("/home");
-          }
-        } else {
+          this.$http
+            .post("login", this.loginForm)
+            .then(res => {
+              this.$message.success("登录成功");
+              sessionStorage.setItem("TOKEN", res.token);
+              this.$router.push("/home");
+            })
+            .catch(err => {
+              this.$message.error("登录失败");
+            });
         }
       });
     }

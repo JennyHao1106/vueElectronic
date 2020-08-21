@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="8">
         <el-input
-          placeholder="请输入搜素条件"
+          placeholder="请输入搜索条件"
           class="input-with-select"
           v-model="searchName"
           clearable
@@ -13,7 +13,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary">添加用户</el-button>
+        <el-button type="primary" @click="handleAddUser">添加用户</el-button>
       </el-col>
     </el-row>
     <el-table :data="users">
@@ -61,12 +61,14 @@
         @prev-click="handleCurrentChange"
         @next-click="handleCurrentChange"
         :current-page="pagenum"
-        :page-sizes="[2,10, 20, 30]"
+        :page-sizes="[10, 20, 30]"
         :page-size="100"
         layout="total, sizes, prev, pager, next, jumper"
         :total="totalpage"
       ></el-pagination>
     </el-row>
+  <add-user @close="closeAddUser" :showVisible="showAddUserFlag"></add-user>
+  <edit-user @close="closeEditUser" :showVisible="showEditUserFlag" :editUserForm_="editUserForm"></edit-user>
   </div>
 </template>
 <style lang="less" scoped>
@@ -78,15 +80,24 @@
 }
 </style>
 <script>
+import addUser from './AddUser';
+import editUser from './EditUser';
 export default {
+  components:{
+    addUser,
+    editUser
+  },
   data() {
     return {
       query: "",
       pagenum: 1,
-      pagesize: 2,
+      pagesize: 10,
       users: [],
       totalpage: 0,
-      searchName: ""
+      searchName: "",
+      showAddUserFlag:false,
+      showEditUserFlag:false,
+      editUserForm:{}
     };
   },
   created() {
@@ -103,7 +114,6 @@ export default {
           }
         })
         .then(res => {
-          //  console.log(res);
           this.users = res.users;
           this.totalpage = res.total;
           this.pagenum = res.pagenum;
@@ -148,6 +158,35 @@ export default {
         .catch(err => {
           return this.$message.error("要查找的用户不存在");
         });
+    },
+    handleAddUser(){
+      this.showAddUserFlag = true;
+    },
+    handleEdit(value){
+      this.editUserForm={
+        id:value.row.id,
+        email:value.row.email,
+        mobile:value.row.mobile
+      }
+      this.showEditUserFlag = true;
+    },
+    handleDelete(value){
+      
+      this.$http.delete(`users/${value.row.id}`).then(res=>{
+        this.$message.success('删除成功');
+        this.handleSearch();
+      }).catch(err=>{
+        this.$message.error('删除失败');
+
+      })
+    },
+    closeAddUser(val){
+      this.showAddUserFlag = false;
+      this.handleUsers()
+    },
+    closeEditUser(){
+      this.showEditUserFlag = false;
+      this.handleUsers();
     }
   }
 };

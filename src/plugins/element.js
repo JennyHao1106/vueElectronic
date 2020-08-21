@@ -22,7 +22,8 @@ import {
     Pagination,
     Switch,
     Tooltip,
-    Notification
+    Notification,
+    Dialog
 } from 'element-ui'
 
 Vue.use(Button)
@@ -48,4 +49,5 @@ Vue.use(Pagination)
 Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.prototype.$notify = Notification;
+Vue.use(Dialog)
 

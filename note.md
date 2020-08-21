@@ -27,3 +27,7 @@
 
 ## 2020.07.03
 1.sessionStorage存储均为String 如果要存储数组需要先使用JSON.stringify 转换，再用JSON.parse解析回数组
+
+
+## 2020.07.07
+1.html5新特性
