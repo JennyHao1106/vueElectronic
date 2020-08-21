@@ -31,7 +31,6 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
 export default {
   data() {
     return {
@@ -57,14 +56,16 @@ export default {
     submit() {
       this.$refs.loginFormRef.validate(async valid => {
         if (valid) {
-          const { data: res } = await this.$http.post("login", this.loginForm);
-          if (res.meta.status !== 200) {
-            this.$message.error("登录失败");
-          } else {
-            this.$message.success("登录成功");
-            sessionStorage.setItem("TOKEN", res.token);
-            this.$router.push("/home");
-          }
+         this.$http
+            .post("login", this.loginForm)
+            .then(res => {
+              this.$message.success("登录成功");
+              sessionStorage.setItem("TOKEN", res.token);
+              this.$router.push("/home");
+            })
+            .catch(err => {
+              this.$message.error("登录失败");
+            });
         } else {
         }
       });
